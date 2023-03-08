@@ -7,8 +7,8 @@ class MyComponent extends React.Component {
         name: 'duc',
         age: 20,
         arrJobs: [
-            {id:'job1',title:'developer'},
-            {id:'job2',title:'tester'},
+            {id:'1',title:'developer'},
+            {id:'2',title:'tester'},
         ]
     }
     onChange = (event) => {
@@ -25,13 +25,19 @@ class MyComponent extends React.Component {
             arrJobs: [...this.state.arrJobs, job]
         })
     }
+    deleteAJob = (job) => {
+        let currentJobs = this.state.arrJobs
+        currentJobs = currentJobs.filter(item => item.id !== job.id)
+        this.setState({
+            arrJobs: currentJobs
+        })
+    }
     render () {
         return (
             <>
                 <AddComponent
                     addNewJob={this.addNewJob}
                 >
-
                 </AddComponent>
                 <div>Hello {this.state.name}</div>
                 <div>
@@ -40,8 +46,8 @@ class MyComponent extends React.Component {
                 <ChildComponent
                     name={this.state.name}
                     arr={this.state.arrJobs}
-                    >
-
+                    deleteAJob = {this.deleteAJob}
+                >
                 </ChildComponent>
             </>
         )
