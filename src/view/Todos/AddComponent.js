@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { toast } from 'react-toastify';
 class AddComponent extends Component {
 
   state = {
@@ -9,8 +10,14 @@ class AddComponent extends Component {
       id:Math.floor(Math.random() * 100),
       title: this.state.title
     }
-    console.log(add)
+    if(this.state.title == ''){
+      toast.error('Title is not null')
+      return;
+    }
     this.props.addNew(add);
+    this.setState({
+      title: ''
+    })
   }
   render() {
     let {title} = this.state

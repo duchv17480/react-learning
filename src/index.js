@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './view/App';
+import Hook from './view/Hook/Hook';
+import UseRef from "./view/Hook/UseRef";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/*<App />*/}
+    <Hook></Hook>
+    <UseRef></UseRef>
   </React.StrictMode>
 );
 

@@ -1,34 +1,30 @@
 import './App.css';
-import MyComponent from './Example/MyComponent';
-import ListComponent from "./Todos/ListComponent";
-import React, {useState} from "react";
-import AddComponent from "./Todos/AddComponent";
+import ToDo from "./Todos/ToDos";
+import React from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends  React.Component {
-  state = {
-    listToDo: [
-      {id: '1', title: 'hello'},
-      {id: '2', title: 'hello 2'},
-      {id: '3', title: 'hello 3'}
-    ]
-  }
-  AddNew = (add) => {
-    this.setState({
-      listToDo: [...this.state.listToDo, add]
-    })
-  }
   render() {
     return (
       <>
         <div className="App">
           <header className="App-header">
-            <AddComponent addNew={this.AddNew}></AddComponent>
-            {/*<MyComponent></MyComponent>*/}
-            <ListComponent
-              listToDo={this.state.listToDo}
-              addNew = {this.AddNew}
-            >
-            </ListComponent>
+            <ToDo></ToDo>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
           </header>
         </div>
       </>

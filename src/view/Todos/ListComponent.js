@@ -1,24 +1,7 @@
 import React from "react";
 import  './List.css'
-import AddComponent from "./AddComponent";
+import { toast } from 'react-toastify';
 class ListComponent extends  React.Component {
-
-  handleAddNew = (event) => {
-    if(!this.state.id || !this.state.title) {
-      alert('missing required params')
-      return;
-    }
-    event.preventDefault()
-    console.log(">>> check", this.state)
-    this.props.addNewJob({
-      id: this.state.id,
-      title: this.state.title
-    })
-    this.setState({
-      id:'',
-      title:''
-    })
-  }
   render() {
 
     let {listToDo} = this.props
